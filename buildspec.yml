@@ -20,7 +20,7 @@ phases:
     commands:
       - echo "Pushing the Docker image to Amazon ECR..."
       - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-      - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG"
+      - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
 artifacts:
   files:
     - '**/*'
