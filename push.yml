@@ -10,18 +10,18 @@ phases:
   pre_build:
     commands:
       - echo "Logging in to Amazon ECR..."
-      - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.ap-northeast-1.amazonaws.com
+      - aws ecr get-login-password --region ap-northeast-1 | docker login --username wiseman1214 --password-stdin 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/api-repository
       - REPO_NAME="api-repository"
       - IMAGE_TAG=$(date +%Y%m%d%H%M%S) # タグを現在時刻に設定
   build:
     commands:
       - echo "Building the Docker image..."
       - docker build -t $REPO_NAME:$IMAGE_TAG .
-      - docker tag $REPO_NAME:$IMAGE_TAG 123456789012.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+      - docker tag $REPO_NAME:$IMAGE_TAG 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/api-repository/$REPO_NAME:$IMAGE_TAG
   post_build:
     commands:
       - echo "Pushing the Docker image to Amazon ECR..."
-      - docker push 123456789012.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+      - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/api-repository/$REPO_NAME:$IMAGE_TAG
       - echo "Docker image pushed successfully: $REPO_NAME:$IMAGE_TAG"
 artifacts:
   files:
