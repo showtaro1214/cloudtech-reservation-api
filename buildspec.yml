@@ -23,5 +23,5 @@ phases:
       - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
 artifacts:
   files:
-    - '**/*'
+    - imageDetail.json
   discard-paths: yes
