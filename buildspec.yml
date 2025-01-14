@@ -21,9 +21,12 @@ post_build:
     - echo "Pushing the Docker image to Amazon ECR..."
     - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
     - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
+    - echo "Current directory: $(pwd)" 
+    - ls -l                           # 現在のディレクトリ内のファイル一覧を出力
     - echo "Writing image details to JSON files..."
-    - echo '{"imageURI" "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
-    - echo '{"name" "'"$REPO_NAME"'", "imageUri" "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDefinitions.json
+    - echo '{"imageURI":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
+    - echo '[{"name":"'"$REPO_NAME"'", "imageUri":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}]' > imageDefinitions.json
+    - ls -l                           # JSON ファイルが作成されたことを確認
 artifacts:
   files:
     - imageDetail.json
