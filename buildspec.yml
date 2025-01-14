@@ -24,4 +24,5 @@ phases:
 artifacts:
   files:
     - imageDetail.json
+    - imageDefinitions.json
   discard-paths: yes
