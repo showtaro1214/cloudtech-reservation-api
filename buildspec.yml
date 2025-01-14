@@ -21,7 +21,7 @@ post_build:
     - echo "Pushing the Docker image to Amazon ECR..."
     - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
     - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
-    - echo "Current directory: $(pwd)" 
+    - echo "Current directory:$(pwd)" 
     - ls -l                           # 現在のディレクトリ内のファイル一覧を出力
     - echo "Writing image details to JSON files..."
     - echo '{"imageURI":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
