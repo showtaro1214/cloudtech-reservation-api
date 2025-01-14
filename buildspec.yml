@@ -21,9 +21,9 @@ phases:
       - echo "Pushing the Docker image to Amazon ECR..."
       - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
       - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
-    - echo "Writing image details to JSON files..."
-    - echo '{"imageURI": "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
-    - echo '[{"name": "'"$REPO_NAME"'", "imageUri": "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}]' > imageDefinitions.json
+      - echo "Writing image details to JSON files..."
+      - echo '{"imageURI": "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
+      - echo '[{"name": "'"$REPO_NAME"'", "imageUri": "831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}]' > imageDefinitions.json
 
 artifacts:
   files:
