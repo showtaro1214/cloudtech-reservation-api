@@ -16,23 +16,23 @@ phases:
       - echo "Building the Docker image..."
       - docker build -t $REPO_NAME:$IMAGE_TAG .
       - docker tag $REPO_NAME:$IMAGE_TAG 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-post_build:
-  commands:
-    - echo "REPO_NAME:$REPO_NAME"
-    - echo "IMAGE_TAG:$IMAGE_TAG"
-    - echo "Pushing the Docker image to Amazon ECR..."
-    - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-    - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
-    - echo "Current directory:$(pwd)" 
-    - ls -l                           # 現在のディレクトリ内のファイル一覧を出力
-    - echo "Writing image details to JSON files..."
-    - echo '{"imageURI":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
-    - echo '[{"name":"'"$REPO_NAME"'", "imageUri":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}]' > imageDefinitions.json
-    - ls -l                           # JSON ファイルが作成されたことを確認
-    - cat imageDetail.json
-    - cat imageDefinitions.json
-artifacts:
-  files:
-    - "./imageDetail.json"
-    - "./imageDefinitions.json"
+  post_build:
+    commands:
+      - echo "REPO_NAME:$REPO_NAME"
+      - echo "IMAGE_TAG:$IMAGE_TAG"
+      - echo "Pushing the Docker image to Amazon ECR..."
+      - docker push 831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+      - echo "Docker image pushed successfully" $REPO_NAME:$IMAGE_TAG
+      - echo "Current directory:$(pwd)" 
+      - ls -l                           # 現在のディレクトリ内のファイル一覧を出力
+      - echo "Writing image details to JSON files..."
+      - echo '{"imageURI":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}' > imageDetail.json
+      - echo '[{"name":"'"$REPO_NAME"'", "imageUri":"831926601959.dkr.ecr.ap-northeast-1.amazonaws.com/'"$REPO_NAME:$IMAGE_TAG"'"}]' > imageDefinitions.json
+      - ls -l                           # JSON ファイルが作成されたことを確認
+      - cat imageDetail.json
+      - cat imageDefinitions.json
+  artifacts:
+    files:
+      - "./imageDetail.json"
+      - "./imageDefinitions.json"
   discard-paths: no
