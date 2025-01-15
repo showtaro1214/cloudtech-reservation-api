@@ -29,6 +29,6 @@ post_build:
     - ls -l                           # JSON ファイルが作成されたことを確認
 artifacts:
   files:
-    - imageDetail.json
-    - imageDefinitions.json
+    - "./imageDetail.json"
+    - "./imageDefinitions.json"
   discard-paths: no
