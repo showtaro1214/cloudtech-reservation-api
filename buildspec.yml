@@ -35,4 +35,4 @@ phases:
     files:
       - "./imageDetail.json"
       - "./imageDefinitions.json"
-  discard-paths: no
+    discard-paths: no
