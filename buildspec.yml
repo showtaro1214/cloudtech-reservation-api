@@ -23,7 +23,7 @@ phases:
       - |
         echo '[
           {
-            "name": "handson-10-container",
+            "name": "api-repository",
             "imageUri": "'${ECR_REPOSITORY}':latest"
           }
         ]' > imagedefinitions.json
